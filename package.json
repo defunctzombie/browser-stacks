@@ -1,0 +1,16 @@
+{
+    "name": "browser-stacks",
+    "private": true,
+    "testling": {
+        "files": "./test.js",
+        "browsers": {
+            "ie": "6..latest",
+            "chrome": "20..latest",
+            "firefox": "3.6..latest",
+            "opera": "10..latest",
+            "safari": "5..latest",
+            "ipad": "latest",
+            "android": "latest"
+        }
+    }
+}
