@@ -1,0 +1,4 @@
+{
+  "line": 2,
+  "stack": "bar\n\nfoo\n\n\n\n\n\nanonymous\n\nexecuteScript\n\nc@http://localhost:33769/connect.html?url=ws%3A%2F%2Flocalhost%3A33769:64\n@http://localhost:33769/connect.html?url=ws%3A%2F%2Flocalhost%3A33769:5\nac@http://localhost:33769/connect.html?url=ws%3A%2F%2Flocalhost%3A33769:61\nf@http://localhost:33769/connect.html?url=ws%3A%2F%2Flocalhost%3A33769:51\ng@http://localhost:33769/connect.html?url=ws%3A%2F%2Flocalhost%3A33769:52\nexecute@http://localhost:33769/connect.html?url=ws%3A%2F%2Flocalhost%3A33769:64\nnd@http://localhost:33769/connect.html?url=ws%3A%2F%2Flocalhost%3A33769:77\nW@http://localhost:33769/connect.html?url=ws%3A%2F%2Flocalhost%3A33769:19\nmb@http://localhost:33769/connect.html?url=ws%3A%2F%2Flocalhost%3A33769:73\n@[native code]\n[native code]"
+}

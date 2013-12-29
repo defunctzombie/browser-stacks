@@ -1,0 +1,4 @@
+{
+  "message": "foobar",
+  "stack": "<anonymous function>([arguments not available])@\nfoo([arguments not available])@\n<anonymous function>([arguments not available])@\n<anonymous function>([arguments not available])@\n@\n\nError created at <anonymous function>([arguments not available])@\nfoo([arguments not available])@\n<anonymous function>([arguments not available])@\n<anonymous function>([arguments not available])@\n@"
+}

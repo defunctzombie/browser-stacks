@@ -1,0 +1,7 @@
+{
+  "stack": "()@about:blank:61\nfoo(\"a\")@about:blank:65\n()@about:blank:70\n()@about:blank:69\nanonymous()@about:blank:60\n([object Event])@about:blank:60\n",
+  "message": "foobar",
+  "lineNumber": 61,
+  "name": "Error",
+  "fileName": "about:blank"
+}

@@ -1,0 +1,92 @@
+#!/usr/bin/env node
+
+var fs = require('fs');
+var path = require('path');
+var wd = require('wd');
+var inorder = require('in-order');
+var debug = require('debug')('browser-stacks');
+
+var browsers = require('./browsers');
+
+var username = process.argv[2];
+var key = process.argv[3];
+
+var src = fs.readFileSync(__dirname + '/test.js', 'utf8');
+var js_str = '(function() { ' + src + ' })();';
+
+var stackdir = path.join(__dirname, 'stacks');
+
+browsers(function(err, map) {
+    if (err) {
+        return console.error(err);
+    }
+
+    // make list of unique versions
+    var to_test = {};
+
+    for (var name in map) {
+        map[name].forEach(function(browser) {
+            to_test[browser.name + browser.version] = browser;
+        });
+    }
+
+    var list = Object.keys(to_test).map(function(key) {
+        return to_test[key];
+    });
+
+    run(list);
+});
+
+function run(list) {
+    inorder(list, function(browser, done) {
+        delete browser.platform;
+        debug('initalizing %j', browser);
+        js_eval(browser.name, browser.version, js_str, function(err, res) {
+            if (err) {
+                console.error(err);
+                return done();
+            }
+
+            var filename = browser.name + '_' + browser.version + '.json';
+            debug('saving %s', filename);
+
+            var str = JSON.stringify(res, null, '  ');
+            fs.writeFileSync(path.join(stackdir, filename), str, 'utf-8')
+            done();
+        });
+    }, function(err) {
+        console.error(err);
+    });
+};
+
+function js_eval(name, version, src, cb) {
+    var browser = wd.remote('ondemand.saucelabs.com', 80, username, key);
+
+    // allow for shorter/common name
+    var map = {
+        'ie': 'iexplore'
+    };
+
+    name = map[name] || name;
+
+    var conf = {
+        browserName: name,
+        version: version,
+        platform: 'any'
+    };
+
+    browser.init(conf, function(err) {
+        if (err) {
+            return cb(err);
+        }
+
+        browser.eval(src, function(err, res) {
+            browser.quit();
+            if (err) {
+                return cb(err);
+            }
+
+            return cb(null, res);
+        });
+    });
+}

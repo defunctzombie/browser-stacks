@@ -1,0 +1,4 @@
+{
+  "description": "foobar",
+  "stack": "Error: foobar\n   at bar (Unknown script code:2:5)\n   at foo (Unknown script code:6:5)\n   at Anonymous function (Unknown script code:11:5)\n   at Anonymous function (Unknown script code:10:2)\n   at Anonymous function (Unknown script code:1:73)"
+}

@@ -11,9 +11,17 @@ try {
     foo('a');
 })();
 } catch (err) {
+    var obj = {};
+
+    // get any enumerable properties
     for (var key in err) {
-        if (key === 'stack') continue;
-        console.log(key, err[key]);
+        obj[key] = err[key];
     }
-    console.log(err.stack);
+
+    // sometimes stack field is not enumerable
+    if (err.stack) {
+        obj['stack'] = err.stack;
+    }
+
+    return obj;
 }

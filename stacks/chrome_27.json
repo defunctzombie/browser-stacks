@@ -1,0 +1,3 @@
+{
+  "stack": "Error: foobar\n    at new bar (<anonymous>:11:11)\n    at foo (<anonymous>:15:5)\n    at obj (<anonymous>:20:5)\n    at <anonymous>:21:3\n    at <anonymous>:37:4\n    at E (<anonymous>:10:544)\n    at Object.window.domAutomationController.send.apply.navigator (<anonymous>:10:877)\n    at <anonymous>:10:901\n    at <anonymous>:10:1036"
+}
