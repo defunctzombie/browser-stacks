@@ -1,5 +1,6 @@
 {
     "name": "browser-stacks",
+    "version": "0.0.0",
     "private": true,
     "testling": {
         "files": "./test.js",
